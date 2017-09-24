@@ -1,8 +1,10 @@
 
 #Globals
 #------------------------------------
-playerclass = 0
+playerClass = 0
 playerName = 0
+playerLoc = 0,0,1
+whatAction = input("What action would you like to take? Type HELP for commands")
 
 warriorStats = {
 		"Strength" : 15,
@@ -33,15 +35,15 @@ def intro():
     
     print("1: Warrior, A fighter rigorously trained in hand-to-hand combat. Wields all melee weapons. High Strength and Constitution growth")
     print("2: Wizard, A studious magician that can conjure and project magic to harm enemies. Wields staves or wands. High Intelligence and Wisdom growth")
-    global playerclass
-    playerclass = input("Type 1 for Warrior or 2 for Wizard")
+    global playerClass
+    playerClass = input("Type 1 for Warrior or 2 for Wizard")
 
-    return playerclass
+    return playerClass
 
 #Lets player set name of player character. Better exception handling? Double check?
 def playerName():
     global playerName
-    playerName = input("What is your name?", playerclass,"?")
+    playerName = input("What is your name?", playerClass,"?")
     if type(playerName) != str:
         print("Please, use only strings for a name")
     else: print("Welcome to the world of NAMEPENDING,", playerName,".")
@@ -54,6 +56,28 @@ def classname(classNumber):
     else:
         classname = "Wizard"
     return(classname)
+
+#Prompt player for actions and handle them
+def playerAction(action):
+    if action == int.lower(move):
+        print("Which direction would you like to move? North/East/South/West")
+
+        
+ 
+
+#Set location. X,Y,Z. +X = East, -X = West  +Y = North, -Y = South   +Z = Up a floor, -Z = Down a floor
+def playerLoc(x,y,z):
+    global playerLoc
+    while x,y,z = 0,0,1:
+        print("You stand in the town center. A bustling metropolis surrounds you. To your east you see a road heading out of town.)
+        playerAction(input())
+    while x,y,z = 1,0,1:
+        print("You stand at the east gate, buildings surround a busy street heading west to the town center. To the north is an item shop with a 2nd floor inn.)
+        playerAction(input())
+    while x,y,z = 1,1,1:
+        print("You stand in the town item shop. The shopkeep, a charismatic looking elf, eyes you from the counter. Opposite him is a stairway leading to the Inn upstairs.)
+        print(" 'Greetings, traveler!', the elf beckons you over to the till.' ")
+        playerAction(input()) 
 
 
 intro()
@@ -70,3 +94,9 @@ while True:
         intro()
     else:
         playerName()
+
+
+
+    
+    
+    
